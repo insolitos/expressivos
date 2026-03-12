@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos Expressivos - 8.º Ano</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+                --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-24);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: var(--space-32);
+            padding: var(--space-32) var(--space-16);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-teal-400));
+            color: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-12);
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-12);
+            margin-bottom: var(--space-24);
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: var(--space-12) var(--space-16);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-size: 1rem;
+            background-color: var(--color-surface);
+            color: var(--color-text);
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px var(--color-focus-ring);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: var(--space-8);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: var(--space-12) var(--space-20);
+            border: none;
+            border-radius: var(--radius-base);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            font-family: var(--font-family-base);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-secondary-hover);
+        }
+
+        .btn-secondary.active {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-24);
+            margin-bottom: var(--space-32);
+        }
+
+        .resource-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .resource-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: var(--color-primary);
+        }
+
+        .resource-card h3 {
+            color: var(--color-primary);
+            font-size: 1.4rem;
+            margin-bottom: var(--space-12);
+            font-weight: 600;
+        }
+
+        .resource-type {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: var(--color-secondary);
+            color: var(--color-text-secondary);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-bottom: var(--space-12);
+            font-weight: 500;
+        }
+
+        .resource-card p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-16);
+            line-height: 1.7;
+        }
+
+        .example {
+            background-color: var(--color-secondary);
+            padding: var(--space-12);
+            border-radius: var(--radius-base);
+            margin-top: var(--space-12);
+            font-style: italic;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: var(--space-24);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-teal-400));
+            color: white;
+            padding: var(--space-24);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: var(--space-8);
+        }
+
+        .modal-body {
+            padding: var(--space-24);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: var(--space-16);
+            right: var(--space-16);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .section {
+            margin-bottom: var(--space-24);
+        }
+
+        .section h3 {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            margin-bottom: var(--space-12);
+            font-weight: 600;
+        }
+
+        .section h4 {
+            color: var(--color-text);
+            font-size: 1.1rem;
+            margin-top: var(--space-16);
+            margin-bottom: var(--space-8);
+            font-weight: 600;
+        }
+
+        .examples-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .examples-list li {
+            background-color: var(--color-secondary);
+            padding: var(--space-12);
+            margin-bottom: var(--space-8);
+            border-radius: var(--radius-base);
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .quiz-section {
+            background-color: var(--color-secondary);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            margin-top: var(--space-24);
+        }
+
+        .quiz-section h3 {
+            margin-bottom: var(--space-16);
+        }
+
+        .quiz-question {
+            margin-bottom: var(--space-20);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+            margin-top: var(--space-12);
+        }
+
+        .quiz-option {
+            padding: var(--space-12);
+            background-color: var(--color-surface);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--color-primary);
+            background-color: var(--color-secondary);
+        }
+
+        .quiz-option.correct {
+            background-color: rgba(33, 128, 141, 0.2);
+            border-color: var(--color-primary);
+        }
+
+        .quiz-option.incorrect {
+            background-color: rgba(255, 84, 89, 0.2);
+            border-color: #ff5459;
+        }
+
+        .feedback {
+            margin-top: var(--space-12);
+            padding: var(--space-12);
+            border-radius: var(--radius-base);
+            font-weight: 500;
+        }
+
+        .feedback.correct {
+            background-color: rgba(33, 128, 141, 0.2);
+            color: var(--color-primary);
+        }
+
+        .feedback.incorrect {
+            background-color: rgba(255, 84, 89, 0.2);
+            color: #c0152f;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: var(--space-20);
+            background-color: var(--color-secondary);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-24);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-top: var(--space-8);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: var(--space-16);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Recursos Expressivos</h1>
+            <p class="subtitle">Guia completo para alunos do 8.º ano • Português Europeu</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="totalResources">20</div>
+                <div class="stat-label">Recursos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="studiedCount">0</div>
+                <div class="stat-label">Estudados</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="progressPercent">0%</div>
+                <div class="stat-label">Progresso</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Procurar recursos expressivos...">
+            </div>
+            <div class="filter-buttons">
+                <button class="btn btn-secondary active" data-filter="todos">Todos</button>
+                <button class="btn btn-secondary" data-filter="som">Som</button>
+                <button class="btn btn-secondary" data-filter="sintaxe">Sintaxe</button>
+                <button class="btn btn-secondary" data-filter="semantica">Semântica</button>
+            </div>
+        </div>
+
+        <div class="resources-grid" id="resourcesGrid"></div>
+    </div>
+
+    <div class="modal" id="resourceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <h2 id="modalTitle"></h2>
+                <span class="resource-type" id="modalType"></span>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const resources = [
+            {
+                name: 'Comparação',
+                category: 'semantica',
+                shortDesc: 'Estabelecimento de uma relação de semelhança através de uma expressão comparativa.',
+                definition: 'A comparação estabelece uma relação de semelhança entre dois elementos através de uma conjunção ou expressão comparativa (como, tal como, assim como, parece, à semelhança de, assemelha-se a).',
+                purpose: 'Tornar a descrição mais clara e visual, ajudando o leitor a visualizar melhor aquilo que está a ser descrito.',
+                when: 'Usa-se quando queremos estabelecer uma relação explícita entre dois elementos, facilitando a compreensão através de algo já conhecido.',
+                how: 'Liga-se dois elementos através de uma palavra ou expressão comparativa.',
+                examples: [
+                    'Os olhos dela são <strong>azuis como</strong> o céu.',
+                    'O atleta corre <strong>veloz como</strong> um leopardo.',
+                    'Ela é <strong>teimosa como</strong> uma mula.',
+                    'O silêncio era <strong>profundo como</strong> um poço sem fundo.'
+                ],
+                quiz: {
+                    question: 'Qual das seguintes frases contém uma comparação?',
+                    options: [
+                        'O mar estava calmo.',
+                        'O mar era um espelho tranquilo.',
+                        'O mar estava calmo como um lago.',
+                        'O mar brilhava intensamente.'
+                    ],
+                    correct: 2,
+                    explanation: 'A opção correta usa "como" para estabelecer uma relação de semelhança entre o mar e um lago.'
+                }
+            },
+            {
+                name: 'Metáfora',
+                category: 'semantica',
+                shortDesc: 'Comparação implícita sem usar expressões comparativas, identificando diretamente dois elementos.',
+                definition: 'A metáfora estabelece uma identificação direta entre dois elementos com base numa relação de semelhança, sem usar expressões comparativas.',
+                purpose: 'Criar imagens expressivas e sugestivas, tornando a linguagem mais poética e carregada de significado.',
+                when: 'Usa-se quando se pretende uma linguagem mais literária e expressiva, criando associações criativas entre conceitos.',
+                how: 'Identifica-se diretamente um elemento com outro, sem usar "como" ou outras expressões comparativas.',
+                examples: [
+                    'A vida é um <strong>palco</strong> onde representamos vários papéis.',
+                    'Os seus olhos eram <strong>duas estrelas</strong> brilhantes.',
+                    'O tempo é <strong>dinheiro</strong>.',
+                    'Aquele homem é um <strong>leão</strong> na batalha.',
+                    'A saudade é <strong>um barco sem destino</strong>.'
+                ],
+                quiz: {
+                    question: 'Identifica a metáfora:',
+                    options: [
+                        'Ele é forte como um touro.',
+                        'A cidade era um formigueiro humano.',
+                        'Choveu muito ontem.',
+                        'O professor explicou bem a matéria.'
+                    ],
+                    correct: 1,
+                    explanation: 'A cidade é identificada diretamente com um formigueiro, sem usar expressões comparativas.'
+                }
+            },
+            {
+                name: 'Personificação',
+                category: 'semantica',
+                shortDesc: 'Atribuição de características ou comportamentos humanos a seres inanimados, animais ou conceitos abstratos.',
+                definition: 'A personificação (ou prosopopeia) consiste em atribuir características, sentimentos ou ações humanas a seres inanimados, animais ou conceitos abstratos.',
+                purpose: 'Dar vida e expressividade a elementos não-humanos, tornando a narrativa mais envolvente e emotiva.',
+                when: 'Usa-se frequentemente em textos literários, especialmente em fábulas, contos e poesia.',
+                how: 'Atribui-se verbos, adjetivos ou comportamentos típicos de seres humanos a entidades não-humanas.',
+                examples: [
+                    'O vento <strong>sussurrava</strong> segredos ao ouvido.',
+                    'As flores <strong>sorriam</strong> para o sol.',
+                    'A cidade <strong>dormia</strong> profundamente.',
+                    'O tempo <strong>ensinou-me</strong> muitas lições.',
+                    'A morte <strong>chamava</strong> por ele.'
+                ],
+                quiz: {
+                    question: 'Qual frase contém personificação?',
+                    options: [
+                        'O cão ladrou a noite toda.',
+                        'A noite abraçou a cidade com seu manto escuro.',
+                        'Está muito escuro lá fora.',
+                        'As estrelas estão visíveis.'
+                    ],
+                    correct: 1,
+                    explanation: 'A noite é personificada com a ação humana de "abraçar".'
+                }
+            },
+            {
+                name: 'Hipérbole',
+                category: 'semantica',
+                shortDesc: 'Exagero intencional usado para dar ênfase ou criar um efeito dramático.',
+                definition: 'A hipérbole é um exagero intencional e evidente na expressão de uma ideia, com o objetivo de realçar ou impressionar.',
+                purpose: 'Intensificar uma ideia, criar humor ou dramatizar uma situação.',
+                when: 'Usa-se quando se quer dar ênfase exagerada a algo, seja de forma séria ou humorística.',
+                how: 'Exagera-se uma característica, quantidade ou situação para além da realidade.',
+                examples: [
+                    'Já te disse isso <strong>um milhão de vezes</strong>!',
+                    'Estou <strong>morto</strong> de cansaço.',
+                    'Chorei <strong>rios de lágrimas</strong>.',
+                    'Ele é <strong>alto como o monte Evereste</strong>.',
+                    'Esperei <strong>uma eternidade</strong> por ti.'
+                ],
+                quiz: {
+                    question: 'Identifica a hipérbole:',
+                    options: [
+                        'Tenho muito trabalho hoje.',
+                        'Tenho uma montanha de trabalho.',
+                        'Preciso de trabalhar mais.',
+                        'O trabalho está difícil.'
+                    ],
+                    correct: 1,
+                    explanation: 'A expressão "montanha de trabalho" exagera a quantidade de trabalho.'
+                }
+            },
+            {
+                name: 'Enumeração',
+                category: 'sintaxe',
+                shortDesc: 'Sucessão de elementos (palavras, expressões ou frases) para intensificar uma ideia.',
+                definition: 'A enumeração consiste na apresentação sucessiva de vários elementos que mantêm entre si uma relação de sentido.',
+                purpose: 'Intensificar uma ideia, criar ritmo, mostrar variedade ou abundância.',
+                when: 'Usa-se quando se pretende listar características, ações ou elementos relacionados para dar maior força expressiva.',
+                how: 'Apresenta-se uma série de elementos, geralmente separados por vírgulas ou pela conjunção "e".',
+                examples: [
+                    'Trouxe livros, cadernos, canetas e lápis.',
+                    'Acordei, tomei banho, vesti-me e saí.',
+                    'Era inteligente, corajosa, generosa e leal.',
+                    'Viajámos por França, Espanha, Itália e Portugal.',
+                    'O jardim tinha rosas, margaridas, tulipas e lírios.'
+                ],
+                quiz: {
+                    question: 'Qual frase contém uma enumeração?',
+                    options: [
+                        'Gosto muito de estudar.',
+                        'Estudo português e matemática.',
+                        'Comi pão.',
+                        'Ele é simpático.'
+                    ],
+                    correct: 1,
+                    explanation: 'A frase enumera duas disciplinas: português e matemática.'
+                }
+            },
+            {
+                name: 'Anáfora',
+                category: 'sintaxe',
+                shortDesc: 'Repetição de uma palavra ou expressão no início de frases, versos ou segmentos textuais sucessivos.',
+                definition: 'A anáfora consiste na repetição intencional de uma palavra ou expressão no início de frases, versos ou segmentos textuais consecutivos.',
+                purpose: 'Criar ritmo, dar ênfase a uma ideia, reforçar um sentimento ou estruturar o discurso.',
+                when: 'É muito usada em poesia, discursos políticos e textos com intenção persuasiva ou emotiva.',
+                how: 'Repete-se a mesma palavra ou expressão no início de várias estruturas sintáticas.',
+                examples: [
+                    '<strong>Amor</strong> é fogo que arde sem se ver, / <strong>Amor</strong> é ferida que dói e não se sente.',
+                    '<strong>Vi</strong> o mar, <strong>vi</strong> o céu, <strong>vi</strong> as estrelas.',
+                    '<strong>Hoje</strong> acordei cedo, <strong>hoje</strong> trabalhei muito, <strong>hoje</strong> estou cansado.',
+                    '<strong>Tudo</strong> passa, <strong>tudo</strong> muda, <strong>tudo</strong> se transforma.'
+                ],
+                quiz: {
+                    question: 'Qual fragmento apresenta anáfora?',
+                    options: [
+                        'O dia estava bonito. O sol brilhava.',
+                        'Corri, saltei e dancei.',
+                        'Era uma casa, era uma árvore, era um sonho.',
+                        'Gosto de ler livros interessantes.'
+                    ],
+                    correct: 2,
+                    explanation: 'A palavra "era" repete-se no início de cada segmento, criando anáfora.'
+                }
+            },
+            {
+                name: 'Aliteração',
+                category: 'som',
+                shortDesc: 'Repetição intencional de sons consonânticos iguais ou semelhantes.',
+                definition: 'A aliteração é a repetição de sons consonânticos iguais ou semelhantes em palavras próximas ou sucessivas.',
+                purpose: 'Criar efeitos sonoros expressivos, dar musicalidade ao texto e reforçar o significado através do som.',
+                when: 'Comum em poesia, trava-línguas e textos que procuram criar atmosferas através do som.',
+                how: 'Repete-se conscientemente consoantes iguais ou semelhantes em sequência.',
+                examples: [
+                    'O <strong>r</strong>ato <strong>r</strong>oeu a <strong>r</strong>oupa do <strong>r</strong>ei de <strong>R</strong>oma.',
+                    'A <strong>s</strong>erpente <strong>s</strong>ibilava <strong>s</strong>inuosa.',
+                    '<strong>P</strong>or que <strong>p</strong>enso e <strong>p</strong>adece <strong>P</strong>edro?',
+                    'O <strong>v</strong>ento <strong>v</strong>oou <strong>v</strong>eloz.'
+                ],
+                quiz: {
+                    question: 'Identifica a aliteração:',
+                    options: [
+                        'O mar está azul.',
+                        'O silêncio sussurra segredos.',
+                        'Gosto de pássaros.',
+                        'A casa é grande.'
+                    ],
+                    correct: 1,
+                    explanation: 'A repetição do som "s" em "silêncio sussurra segredos" cria aliteração.'
+                }
+            },
+            {
+                name: 'Onomatopeia',
+                category: 'som',
+                shortDesc: 'Palavra ou expressão que imita ou reproduz sons da realidade.',
+                definition: 'A onomatopeia é uma palavra que reproduz ou imita sons naturais, vozes de animais, ruídos de objetos, etc.',
+                purpose: 'Tornar o texto mais expressivo e realista, permitindo ao leitor "ouvir" o que está a ser descrito.',
+                when: 'Usada em banda desenhada, narrativas descritivas e poesia quando se quer reproduzir sons.',
+                how: 'Utiliza-se palavras que imitam fonicamente os sons que representam.',
+                examples: [
+                    'O cão fez <strong>au-au</strong>.',
+                    'A campainha tocou: <strong>trim-trim</strong>!',
+                    'Ouvi o <strong>tique-taque</strong> do relógio.',
+                    'A porta rangeu: <strong>criiiic</strong>.',
+                    'O gato fez <strong>miau</strong>.',
+                    'A água fazia <strong>plic-ploc</strong>.'
+                ],
+                quiz: {
+                    question: 'Qual palavra é uma onomatopeia?',
+                    options: [
+                        'Rapidamente',
+                        'Zum-zum',
+                        'Silêncio',
+                        'Barulhento'
+                    ],
+                    correct: 1,
+                    explanation: '"Zum-zum" imita o som de algo a zumbir, sendo uma onomatopeia.'
+                }
+            },
+            {
+                name: 'Perífrase',
+                category: 'semantica',
+                shortDesc: 'Expressão de uma ideia através de várias palavras, quando poderia ser dita com menos.',
+                definition: 'A perífrase consiste em expressar através de várias palavras aquilo que poderia ser dito com uma única palavra ou expressão mais simples.',
+                purpose: 'Evitar repetições, realçar características específicas ou criar efeitos estilísticos.',
+                when: 'Usa-se quando se pretende evitar a palavra direta ou quando se quer destacar uma característica particular.',
+                how: 'Substitui-se uma palavra simples por uma expressão mais longa e descritiva.',
+                examples: [
+                    'O <strong>astro-rei</strong> (= sol) nasceu.',
+                    'A <strong>cidade luz</strong> (= Paris) é linda.',
+                    'O <strong>rei dos animais</strong> (= leão) rugiu.',
+                    '<strong>O último porto</strong> (= morte) chegou para ele.',
+                    '<strong>A capital do país dos cangurus</strong> (= Camberra, Austrália).'
+                ],
+                quiz: {
+                    question: 'Qual expressão é uma perífrase?',
+                    options: [
+                        'O sol brilha.',
+                        'O astro-rei ilumina o dia.',
+                        'Está calor.',
+                        'Gosto de verão.'
+                    ],
+                    correct: 1,
+                    explanation: '"Astro-rei" é uma perífrase para "sol".'
+                }
+            },
+            {
+                name: 'Pleonasmo',
+                category: 'sintaxe',
+                shortDesc: 'Repetição de ideias ou palavras com o mesmo sentido para dar ênfase.',
+                definition: 'O pleonasmo é o uso intencional de palavras ou expressões redundantes para reforçar uma ideia.',
+                purpose: 'Dar ênfase, realçar uma característica ou intensificar uma mensagem.',
+                when: 'Quando usado propositadamente para efeito estilístico; quando não intencional, é considerado um vício de linguagem.',
+                how: 'Usa-se palavras que repetem ou reforçam uma ideia já expressa.',
+                examples: [
+                    '<strong>Subir para cima</strong> da escada.',
+                    '<strong>Entrar para dentro</strong> de casa.',
+                    '<strong>Vi com os meus próprios olhos</strong>.',
+                    '<strong>Hemorragia de sangue</strong>.',
+                    '<strong>Protagonista principal</strong> do filme.'
+                ],
+                quiz: {
+                    question: 'Identifica o pleonasmo:',
+                    options: [
+                        'Sair de casa.',
+                        'Sair para fora.',
+                        'Sair rapidamente.',
+                        'Sair apressado.'
+                    ],
+                    correct: 1,
+                    explanation: '"Sair para fora" é redundante, pois sair já implica ir para fora.'
+                }
+            },
+            {
+                name: 'Antítese',
+                category: 'semantica',
+                shortDesc: 'Contraste ou oposição entre duas ideias, palavras ou expressões.',
+                definition: 'A antítese consiste na aproximação de palavras ou ideias de sentido oposto para criar um contraste significativo.',
+                purpose: 'Realçar diferenças, criar tensão dramática ou destacar contradições.',
+                when: 'Usa-se quando se pretende evidenciar oposições ou contrastar realidades diferentes.',
+                how: 'Coloca-se em proximidade palavras ou expressões de significado contrário.',
+                examples: [
+                    'Do <strong>riso</strong> ao <strong>pranto</strong> vai um segundo.',
+                    'Era um dia de <strong>luz</strong> e <strong>trevas</strong>.',
+                    '<strong>Amor</strong> e <strong>ódio</strong> andam juntos.',
+                    'Entre o <strong>bem</strong> e o <strong>mal</strong>, escolho o bem.',
+                    '<strong>Pequeno</strong> no corpo, <strong>grande</strong> no coração.'
+                ],
+                quiz: {
+                    question: 'Qual frase apresenta antítese?',
+                    options: [
+                        'O dia estava bonito.',
+                        'Entre a vida e a morte, há esperança.',
+                        'Gosto de ler livros.',
+                        'A casa é grande.'
+                    ],
+                    correct: 1,
+                    explanation: '"Vida" e "morte" são conceitos opostos colocados em contraste.'
+                }
+            },
+            {
+                name: 'Eufemismo',
+                category: 'semantica',
+                shortDesc: 'Substituição de uma expressão direta ou desagradável por outra mais suave ou agradável.',
+                definition: 'O eufemismo consiste em suavizar uma expressão considerada desagradável, chocante ou ofensiva, substituindo-a por outra mais suave.',
+                purpose: 'Tornar o discurso mais polido, evitar palavras tabu ou amenizar realidades dolorosas.',
+                when: 'Usa-se em situações formais, em assuntos delicados ou quando se quer ser discreto.',
+                how: 'Substitui-se uma palavra ou expressão direta por outra menos forte ou mais delicada.',
+                examples: [
+                    'Ele <strong>partiu desta para melhor</strong> (= morreu).',
+                    'Ela está <strong>em situação económica difícil</strong> (= pobre).',
+                    'Ele não é muito <strong>agraciado pela natureza</strong> (= feio).',
+                    '<strong>Faltou à verdade</strong> (= mentiu).',
+                    'Foi para <strong>a última morada</strong> (= morreu/foi enterrado).'
+                ],
+                quiz: {
+                    question: 'Identifica o eufemismo:',
+                    options: [
+                        'Ele morreu ontem.',
+                        'Ele faleceu ontem.',
+                        'Ele adoeceu gravemente.',
+                        'Ele foi ao hospital.'
+                    ],
+                    correct: 1,
+                    explanation: '"Faleceu" é um eufemismo para "morreu", sendo uma forma mais suave.'
+                }
+            },
+            {
+                name: 'Ironia',
+                category: 'semantica',
+                shortDesc: 'Expressão que sugere o contrário daquilo que as palavras literalmente dizem.',
+                definition: 'A ironia consiste em dizer o contrário daquilo que se pensa, com a intenção de criar um efeito crítico, humorístico ou sarcástico.',
+                purpose: 'Criticar, ridicularizar, criar humor ou expressar desaprovação de forma indireta.',
+                when: 'Usa-se quando se pretende transmitir uma crítica subtil ou expressar algo de forma não literal.',
+                how: 'Afirma-se algo cujo significado real é o oposto do que foi dito, geralmente com um tom específico.',
+                examples: [
+                    'Que <strong>belo</strong> tempo! (quando está a chover torrencialmente)',
+                    '<strong>Parabéns</strong> pela tua pontualidade! (para alguém que chegou muito atrasado)',
+                    'És mesmo um <strong>génio</strong>! (para alguém que fez algo tolo)',
+                    'Que <strong>excelente</strong> ideia a tua! (quando a ideia foi péssima)'
+                ],
+                quiz: {
+                    question: 'Qual frase contém ironia?',
+                    options: [
+                        'Parabéns pelo teu esforço!',
+                        'Que dia lindo! (num dia chuvoso e cinzento)',
+                        'Gosto muito de ti.',
+                        'Estudaste bem para o teste.'
+                    ],
+                    correct: 1,
+                    explanation: 'Chamar "lindo" a um dia chuvoso é ironia, pois expressa o contrário do que se pensa.'
+                }
+            },
+            {
+                name: 'Interrogação Retórica',
+                category: 'sintaxe',
+                shortDesc: 'Pergunta que não espera resposta, usada para afirmar ou dar ênfase.',
+                definition: 'A interrogação retórica é uma pergunta que não espera resposta, pois a resposta é óbvia ou está implícita, servindo para afirmar ou dar ênfase.',
+                purpose: 'Reforçar uma afirmação, provocar reflexão ou criar um efeito dramático.',
+                when: 'Usa-se em discursos, textos argumentativos ou literários para envolver o interlocutor.',
+                how: 'Formula-se uma pergunta cuja resposta é evidente ou não se espera obter.',
+                examples: [
+                    '<strong>Quem não gosta de ser feliz?</strong>',
+                    '<strong>Não é verdade que todos queremos paz?</strong>',
+                    '<strong>Achas que vou ficar calado?</strong>',
+                    '<strong>Como posso esquecer-te?</strong>',
+                    '<strong>Será que não percebes?</strong>'
+                ],
+                quiz: {
+                    question: 'Qual é uma interrogação retórica?',
+                    options: [
+                        'Que horas são?',
+                        'Onde moras?',
+                        'Quem não deseja ser feliz?',
+                        'Qual é o teu nome?'
+                    ],
+                    correct: 2,
+                    explanation: 'A pergunta não espera resposta, pois é óbvio que todos desejam ser felizes.'
+                }
+            },
+            {
+                name: 'Adjetivação',
+                category: 'sintaxe',
+                shortDesc: 'Uso de adjetivos (dois ou mais) para caracterizar de forma expressiva um ser ou objeto.',
+                definition: 'A adjetivação expressiva consiste no uso intencional de dois ou mais adjetivos para caracterizar intensamente um substantivo.',
+                purpose: 'Enriquecer a descrição, tornar o texto mais expressivo e transmitir com maior precisão características.',
+                when: 'Usa-se em descrições detalhadas, especialmente em textos literários e narrativos.',
+                how: 'Acrescentam-se múltiplos adjetivos qualificativos a um substantivo.',
+                examples: [
+                    'Uma casa <strong>antiga, escura e sombria</strong>.',
+                    'Um rapaz <strong>inteligente, corajoso e generoso</strong>.',
+                    'Uma manhã <strong>fria, cinzenta e húmida</strong>.',
+                    'Um olhar <strong>profundo, intenso e penetrante</strong>.'
+                ],
+                quiz: {
+                    question: 'Qual frase apresenta adjetivação expressiva?',
+                    options: [
+                        'Comprei um carro.',
+                        'Vi uma flor bonita.',
+                        'Encontrei um cão pequeno, branco e peludo.',
+                        'Gosto de música.'
+                    ],
+                    correct: 2,
+                    explanation: 'A frase usa três adjetivos (pequeno, branco, peludo) para caracterizar o cão.'
+                }
+            },
+            {
+                name: 'Anástrofe',
+                category: 'sintaxe',
+                shortDesc: 'Inversão da ordem natural das palavras na frase.',
+                definition: 'A anástrofe (ou hipérbato) consiste na alteração da ordem direta dos elementos da frase, invertendo a sequência habitual sujeito-verbo-complementos.',
+                purpose: 'Criar efeitos estilísticos, dar destaque a certos elementos ou adequar-se à métrica poética.',
+                when: 'É comum em poesia e em textos que procuram um registo mais literário ou arcaizante.',
+                how: 'Inverte-se a posição natural dos elementos sintáticos da frase.',
+                examples: [
+                    '<strong>Do mar</strong> o marinheiro voltou. (em vez de: O marinheiro voltou do mar)',
+                    '<strong>Belo</strong> é o mundo. (em vez de: O mundo é belo)',
+                    '<strong>De Portugal</strong> sou filho. (em vez de: Sou filho de Portugal)',
+                    '<strong>Grande</strong> foi a sua alegria. (em vez de: A sua alegria foi grande)'
+                ],
+                quiz: {
+                    question: 'Identifica a frase com anástrofe:',
+                    options: [
+                        'Li o livro ontem.',
+                        'O livro li ontem.',
+                        'Comprei um livro novo.',
+                        'Gosto de ler livros.'
+                    ],
+                    correct: 1,
+                    explanation: 'A ordem natural "Li o livro ontem" foi invertida para "O livro li ontem".'
+                }
+            },
+            {
+                name: 'Gradação',
+                category: 'sintaxe',
+                shortDesc: 'Apresentação de ideias em ordem crescente ou decrescente de intensidade.',
+                definition: 'A gradação consiste na apresentação de uma sequência de palavras ou ideias por ordem crescente (clímax) ou decrescente (anticlímax) de intensidade.',
+                purpose: 'Criar tensão, intensificar emoções ou estruturar uma progressão lógica de ideias.',
+                when: 'Usa-se quando se pretende criar um efeito de progressão ou regressão na intensidade.',
+                how: 'Organiza-se elementos em sequência ascendente ou descendente de força expressiva.',
+                examples: [
+                    'Olhei, <strong>vi, venci</strong>. (crescente)',
+                    'Estava <strong>nervoso, ansioso, aterrorizado</strong>. (crescente)',
+                    'Era um <strong>sussurro, um murmúrio, um grito</strong>. (crescente)',
+                    '<strong>Chorou, gemeu, suspirou</strong>. (decrescente)'
+                ],
+                quiz: {
+                    question: 'Qual frase apresenta gradação?',
+                    options: [
+                        'Gosto de ler e escrever.',
+                        'Estava preocupado, inquieto, desesperado.',
+                        'Comprei pão e leite.',
+                        'A casa tem três quartos.'
+                    ],
+                    correct: 1,
+                    explanation: 'A intensidade aumenta progressivamente de "preocupado" para "desesperado".'
+                }
+            },
+            {
+                name: 'Assonância',
+                category: 'som',
+                shortDesc: 'Repetição de sons vocálicos iguais ou semelhantes.',
+                definition: 'A assonância é a repetição de sons vocálicos (vogais) iguais ou semelhantes em palavras próximas.',
+                purpose: 'Criar musicalidade, estabelecer ritmo e produzir efeitos sonoros no texto.',
+                when: 'Frequente em poesia e em textos que valorizam a dimensão sonora da linguagem.',
+                how: 'Repete-se conscientemente vogais iguais ou semelhantes em sequência.',
+                examples: [
+                    'O p<strong>e</strong>ito do p<strong>é</strong> do P<strong>e</strong>dro <strong>é</strong> pr<strong>e</strong>to.',
+                    'Sól<strong>o</strong> mórbid<strong>o</strong> e <strong>o</strong>bscur<strong>o</strong>.',
+                    'A v<strong>i</strong>da é f<strong>i</strong>ta que se env<strong>i</strong>da.'
+                ],
+                quiz: {
+                    question: 'Identifica a assonância:',
+                    options: [
+                        'O gato caçava ratos.',
+                        'Sou o sol, sou a cor.',
+                        'A casa tem porta.',
+                        'Gosto de viajar.'
+                    ],
+                    correct: 1,
+                    explanation: 'A repetição do som "o" em "sou" e "sol" cria assonância.'
+                }
+            },
+            {
+                name: 'Polissíndeto',
+                category: 'sintaxe',
+                shortDesc: 'Repetição intencional de conjunções coordenativas (normalmente "e").',
+                definition: 'O polissíndeto consiste na repetição de conjunções coordenativas (especialmente "e") entre os elementos de uma enumeração.',
+                purpose: 'Dar ritmo ao texto, criar efeito de acumulação ou prolongamento, reforçar a ideia de abundância.',
+                when: 'Usa-se quando se pretende dar ênfase a cada elemento ou criar um ritmo particular.',
+                how: 'Repete-se a conjunção (geralmente "e") entre todos ou vários elementos da sequência.',
+                examples: [
+                    'Trabalho <strong>e</strong> estudo <strong>e</strong> leio <strong>e</strong> descanso.',
+                    'Comprei maçãs <strong>e</strong> peras <strong>e</strong> laranjas <strong>e</strong> uvas.',
+                    'Era um lugar silencioso <strong>e</strong> calmo <strong>e</strong> sereno.',
+                    'Caminhei <strong>e</strong> corri <strong>e</strong> saltei <strong>e</strong> dancei.'
+                ],
+                quiz: {
+                    question: 'Qual frase contém polissíndeto?',
+                    options: [
+                        'Gosto de ler, escrever, estudar.',
+                        'Gosto de ler e escrever e estudar.',
+                        'Gosto muito de ler.',
+                        'Leio todos os dias.'
+                    ],
+                    correct: 1,
+                    explanation: 'A conjunção "e" é repetida entre todos os elementos da enumeração.'
+                }
+            },
+            {
+                name: 'Apóstrofe',
+                category: 'sintaxe',
+                shortDesc: 'Invocação ou interpelação direta de alguém ou algo.',
+                definition: 'A apóstrofe consiste na interpelação ou invocação direta de uma pessoa, ser, objeto ou entidade abstrata.',
+                purpose: 'Dar ênfase emotiva, criar proximidade ou dramatizar o discurso.',
+                when: 'Comum em poesia lírica, discursos e textos com forte carga emotiva.',
+                how: 'Dirige-se diretamente a alguém ou algo, frequentemente usando o vocativo.',
+                examples: [
+                    '<strong>Ó mar</strong>, que segredos guardas?',
+                    '<strong>Senhor</strong>, tende piedade de nós!',
+                    '<strong>Ó vida</strong>, que mistérios encerras?',
+                    '<strong>Portugal</strong>, terra de heróis!',
+                    '<strong>Amor</strong>, porque me fazes sofrer?'
+                ],
+                quiz: {
+                    question: 'Identifica a apóstrofe:',
+                    options: [
+                        'O céu está azul.',
+                        'Ó céu, que lindo és!',
+                        'Gosto do céu.',
+                        'O céu parece infinito.'
+                    ],
+                    correct: 1,
+                    explanation: 'Há uma invocação direta ao céu através do vocativo "Ó céu".'
+                }
+            }
+        ];
+
+        let studiedResources = new Set();
+        let currentFilter = 'todos';
+
+        function renderResources(filter = 'todos', searchTerm = '') {
+            const grid = document.getElementById('resourcesGrid');
+            const filteredResources = resources.filter(r => {
+                const matchesFilter = filter === 'todos' || r.category === filter;
+                const matchesSearch = r.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                    r.shortDesc.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            grid.innerHTML = filteredResources.map(resource => `
+                <div class="resource-card" onclick="openModal('${resource.name}')">
+                    <span class="resource-type">${getCategoryName(resource.category)}</span>
+                    <h3>${resource.name}</h3>
+                    <p>${resource.shortDesc}</p>
+                    <div class="example">${resource.examples[0]}</div>
+                </div>
+            `).join('');
+
+            if (filteredResources.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--color-text-secondary);">Nenhum recurso encontrado.</p>';
+            }
+        }
+
+        function getCategoryName(category) {
+            const names = {
+                'som': '🔊 Som',
+                'sintaxe': '📝 Sintaxe',
+                'semantica': '💭 Semântica'
+            };
+            return names[category];
+        }
+
+        function openModal(resourceName) {
+            const resource = resources.find(r => r.name === resourceName);
+            const modal = document.getElementById('resourceModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalType = document.getElementById('modalType');
+            const modalBody = document.getElementById('modalBody');
+
+            modalTitle.textContent = resource.name;
+            modalType.textContent = getCategoryName(resource.category);
+
+            modalBody.innerHTML = `
+                <div class="section">
+                    <h3>📖 O que é?</h3>
+                    <p>${resource.definition}</p>
+                </div>
+
+                <div class="section">
+                    <h3>🎯 Para que serve?</h3>
+                    <p>${resource.purpose}</p>
+                </div>
+
+                <div class="section">
+                    <h3>🕐 Quando se usa?</h3>
+                    <p>${resource.when}</p>
+                </div>
+
+                <div class="section">
+                    <h3>🔧 Como se usa?</h3>
+                    <p>${resource.how}</p>
+                </div>
+
+                <div class="section">
+                    <h3>✨ Exemplos</h3>
+                    <ul class="examples-list">
+                        ${resource.examples.map(ex => `<li>${ex}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <h3>🧠 Testa os teus conhecimentos</h3>
+                    <div class="quiz-question">
+                        <strong>${resource.quiz.question}</strong>
+                    </div>
+                    <div class="quiz-options" id="quizOptions-${resourceName.replace(/\s/g, '')}">
+                        ${resource.quiz.options.map((opt, idx) => `
+                            <div class="quiz-option" onclick="checkAnswer('${resourceName}', ${idx})">
+                                ${opt}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div id="feedback-${resourceName.replace(/\s/g, '')}" class="feedback" style="display: none;"></div>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%; margin-top: 24px;" onclick="markAsStudied('${resourceName}')">
+                    ✓ Marcar como estudado
+                </button>
+            `;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('resourceModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function checkAnswer(resourceName, selectedIdx) {
+            const resource = resources.find(r => r.name === resourceName);
+            const cleanName = resourceName.replace(/\s/g, '');
+            const options = document.querySelectorAll(`#quizOptions-${cleanName} .quiz-option`);
+            const feedback = document.getElementById(`feedback-${cleanName}`);
+
+            options.forEach((opt, idx) => {
+                opt.style.pointerEvents = 'none';
+                if (idx === resource.quiz.correct) {
+                    opt.classList.add('correct');
+                } else if (idx === selectedIdx) {
+                    opt.classList.add('incorrect');
+                }
+            });
+
+            if (selectedIdx === resource.quiz.correct) {
+                feedback.className = 'feedback correct';
+                feedback.textContent = '✓ Correto! ' + resource.quiz.explanation;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.textContent = '✗ Incorreto. ' + resource.quiz.explanation;
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        function markAsStudied(resourceName) {
+            studiedResources.add(resourceName);
+            updateStats();
+            closeModal();
+        }
+
+        function updateStats() {
+            document.getElementById('studiedCount').textContent = studiedResources.size;
+            const percent = Math.round((studiedResources.size / resources.length) * 100);
+            document.getElementById('progressPercent').textContent = percent + '%';
+        }
+
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                renderResources(currentFilter, document.getElementById('searchInput').value);
+            });
+        });
+
+        document.getElementById('searchInput').addEventListener('input', function() {
+            renderResources(currentFilter, this.value);
+        });
+
+        document.getElementById('resourceModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        renderResources();
+        updateStats();
+    </script>
+</body>
+</html>
